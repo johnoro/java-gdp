@@ -4,11 +4,11 @@ The top 100 economies in the world are provided in the JSON file. We will be rev
 
 # Instructions
 
-- [ ] Set up an H2 data base to hold the data for countries and their Gross Domestic Projects. Use the provided JSON file to upload your data. The data contains two fields
+- [x] Set up an H2 data base to hold the data for countries and their Gross Domestic Projects. Use the provided JSON file to upload your data. The data contains two fields
 * The Country Name
 * The GDP in millions
 
-- [ ] Set up a Rabbit Message Queue to hold logging information
+- [x] Set up a Rabbit Message Queue to hold logging information
 * Different end points will send messages to the queue
 * Set up a class to consume the logs - this will represent another server that manages logging
 
