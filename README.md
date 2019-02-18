@@ -28,9 +28,9 @@ The top 100 economies in the world are provided in the JSON file. We will be rev
 ### GET
 - [x] /names - return using the JSON format all of the countries alphabetized by name
 
-- [ ] /economy - return using the JSON format all of the countries sorted from most to least GDP
+- [x] /economy - return using the JSON format all of the countries sorted from most to least GDP
 
-- [ ] /total - return the sum of all GDPs using the JSON format with country name being returned as Total
+- [x] /total - return the sum of all GDPs using the JSON format with country name being returned as Total
 
 - [ ] /gdp/{country name} - return using the JSON format the record for that country. Must be spelled as in the data!  
 Log that someone looked up this country

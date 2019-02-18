@@ -35,6 +35,25 @@ public class CountryController {
     return countries;
   }
 
+  @GetMapping("/total")
+  public Country totalGdp() {
+    List<Country> countries = repository.findAll();
+    Long total = 0L;
+    Long id = 0L;
+
+    for (Country country : countries) {
+      if (id.equals(country.getId())) {
+        id++;
+      }
+      total += country.getGdp();
+    }
+
+    Country country = new Country("Total", total);
+    country.setId(id);
+
+    return country;
+  }
+
   @PostMapping("/gdp")
   public List<Country> addCountries(@RequestBody List<Country> countries) {
     return repository.saveAll(countries);
