@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class GdpApplication {
-  public final String EXCHANGE_NAME = "GDP";
-  public final String QUEUE_NAME = "Log";
+  public static final String EXCHANGE_NAME = "GDP";
+  public static final String QUEUE_NAME = "Log";
 
   public static void main(String[] args) {
     SpringApplication.run(GdpApplication.class, args);
