@@ -26,7 +26,7 @@ The top 100 economies in the world are provided in the JSON file. We will be rev
 ## Expose the following end points
 
 ### GET
-- [ ] /names - return using the JSON format all of the countries alphabetized by name
+- [x] /names - return using the JSON format all of the countries alphabetized by name
 
 - [ ] /economy - return using the JSON format all of the countries sorted from most to least GDP
 
@@ -37,6 +37,6 @@ Log that someone looked up this country
 
 ### POST
 
-- [ ] /gdp - loads the data from the provided JSON file
+- [x] /gdp - loads the data from the provided JSON file
 
 
