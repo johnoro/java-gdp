@@ -1,10 +1,7 @@
 package com.lambdaschool.gdp;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -52,6 +49,26 @@ public class CountryController {
     country.setId(id);
 
     return country;
+  }
+
+  @GetMapping("/gdp/{name}")
+  public Country byName(@PathVariable String name) {
+    List<Country> countries = repository.findAll();
+    Long id = -1L;
+
+    for (Country country : countries) {
+      if (country.getCountry().equals(name)) {
+        id = country.getId();
+      }
+    }
+
+    // lambda expressions need a variable that's final (or effectively final);
+    // so only, in any case, assigned to once,
+    // although our country names are unique
+    final Long finalId = id;
+
+    return repository.findById(id)
+      .orElseThrow(() -> new CountryNotFoundException(finalId));
   }
 
   @PostMapping("/gdp")
