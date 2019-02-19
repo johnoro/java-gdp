@@ -1,5 +1,6 @@
 package com.lambdaschool.gdp;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class CountryController {
   private final CountryRepository repository;
@@ -61,6 +63,8 @@ public class CountryController {
         id = country.getId();
       }
     }
+
+    template.convertAndSend(GdpApplication.QUEUE_NAME, "Someone looked up " + name);
 
     // lambda expressions need a variable that's final (or effectively final);
     // so only, in any case, assigned to once,
